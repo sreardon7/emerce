@@ -31,8 +31,8 @@ module.exports.session = {
    host: 'spadefish.redistogo.com',
    port: 9091,
   // ttl: <redis session TTL in seconds>,
-   db: redistogo,
-   pass: af560797177347de5930851e55d10a6f
+   db: 'redistogo',
+   pass: 'af560797177347de5930851e55d10a6f'
   // prefix: 'sess:'
 
 
