@@ -15,7 +15,7 @@ module.exports.session = {
   // Session secret is automatically generated when your new app is created
   // Replace at your own risk in production-- you will invalidate the cookies of your users,
   // forcing them to log in again. 
-  secret: 'b4012393434f243cbd10a50fe9c556d9'
+  secret: 'b4012393434f243cbd10a50fe9c556d9',
 
 
   // In production, uncomment the following lines to set up a shared redis session store
@@ -31,8 +31,8 @@ module.exports.session = {
   host: 'spadefish.redistogo.com',
   port: 9091,
   // ttl: <redis session TTL in seconds>,
-  db: redistogo,
-  pass: af560797177347de5930851e55d10a6f
+  db: 'redistogo',
+  pass: 'af560797177347de5930851e55d10a6f'
   // prefix: 'sess:'
 
 
