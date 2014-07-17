@@ -1,0 +1,2 @@
+# ecommerceProject
+### a Sails application
