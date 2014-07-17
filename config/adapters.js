@@ -14,6 +14,15 @@
 
 module.exports.adapters = {
 
+
+
+
+   mongo: {
+      module    : 'sails-mongo',
+      url        : process.env.DB_URL,
+
+      schema   : true
+    }
   // If you leave the adapter config unspecified 
   // in a model definition, 'default' will be used.
   //'default': 'disk',
