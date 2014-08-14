@@ -1,0 +1,49 @@
+<div class = 'container'>
+	<h3> Transaction History </h3>
+	<table class = 'table'>
+		<tr>
+			<th>Transaction ID</th>
+			<th>Date</th>
+			<th>Account #</th>
+			<th>Description</th>
+			<th>Commission</th>
+			<th>Type</th>
+			<th>Start Balance</th>
+			<th>End Balance</th>
+			<th>Amount</th>
+			<th>Store Id</th>
+			<th>Country</th>
+			<th>Carrier</th>
+			<th>Mobile Phone</th>
+			<th>Product Type</th>
+			<th>Can Undo</th>
+			<th>Country Code</th>
+			<th>Transaction Code</th>
+		</tr>
+
+		<% _.each(transactions, function(transactions) { %>	
+				<tr> 
+					<td> <%= transactions.BillTransactionID %></td>
+					<td> <%= transactions.Date %></td>
+					<td> <%= transactions.AccountNumber %></td>
+					<td> <%= transactions.Description %></td>
+					<td> <%= transactions.Commission %></td>
+					<td> <%= transactions.Type %></td>
+					<td> <%= transactions.StartBalance %></td>
+					<td> <%= transactions.EndBalance %></td>
+					<td> <%= transactions.Amount %></td>
+					<td> <%= transactions.StoreID %></td>
+					<td> <%= transactions.Country %></td>
+					<td> <%= transactions.Carrier %></td>
+					<td> <%= transactions.MobileNumber %></td>
+					<td> <%= transactions.ProductType %></td>
+					<td> <%= transactions.CanUndo %></td>
+					<td> <%= transactions.ISOCountryCode %></td>
+					<td> <%= transactions.TransactionCode %></td>
+					
+					
+
+				</tr>
+		<% })  %>
+	</table>
+</div> 

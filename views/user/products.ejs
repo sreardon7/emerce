@@ -1,0 +1,51 @@
+<div class = 'container'>
+	<h3> Products </h3>
+	<table class = 'table'>
+		<tr>
+			<th></th>
+			<th>Country</th>
+			<th>Carrier</th>
+			<th>Amount USD</th>
+			<th>Product Name</th>
+			<th>Country Code</th>
+			<th>Carrier Code</th>
+			<th>Product Code</th>
+			<th>Product Type</th>
+			<th>Customer Service</th>
+			
+			<th></th>
+		</tr>
+
+		<% _.each(products, function(products) { %>
+		<% var prod = products.ProductCountryList.ProductCountry %>
+			<% _.each(prod, function(prod) { %>
+				<tr> 
+					<td>  <% var json = makeList(products, prod) %>
+						<a href = '/user/prerecharge?amount=<%=json.amount%>&country_code=<%=json.country_code%>&carrier_code=<%=json.carrier_code%>' class ="btn btn-success"> Buy</a>
+						</td>
+					<td> <%= prod.attributes.CountryName %></td>
+					<td> <%= prod.CarrierList.Carrier[0].attributes.CarrierName %></td>
+					<%var cash = products.attributes.Denomination / 100 %>
+					<td> <%= '$' + cash + '.00' %></td>
+					<td> <%= products.attributes.Name %></td>
+					<td> <%= products.attributes.Code %></td>
+					<td> <%= prod.attributes.CountryCode %> </td>
+					<td> <%= prod.CarrierList.Carrier[0].attributes.CarrierCode %></td>
+					<td> <%= products.attributes.ProductType %></td>
+					<td> <%= products.attributes. CustomerServiceNumber %></td>
+					
+				
+				</tr>
+			<% }) %> 
+		<% })  %>
+	</table>
+</div> 
+
+<% function makeList(products, prod) {
+	var json = {
+			amount: products.attributes.Denomination,
+			carrier_code: prod.CarrierList.Carrier[0].attributes.CarrierCode,
+			country_code: prod.attributes.CountryCode
+	}
+	return json;
+	} %>

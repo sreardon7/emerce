@@ -21,6 +21,7 @@ module.exports.policies = {
   	'new': 'flash',
   	'create': 'flash',
   	'show': 'canProfile',
+  	'products': 'canProfile',
   	'subscribe': ['flash', 'isAuthenticated'],
   	'edit': 'canProfile',
   	'update': 'canProfile',

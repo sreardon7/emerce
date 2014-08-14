@@ -1,0 +1,49 @@
+
+[0m[0m
+[0m  Emailer for verifications[0m
+  [36m  - should have a transporter with the proper details[0m
+  [36m  - should have mailing options with certain details[0m
+[0m    #send[0m
+    [36m  - Should send a mail to a supplied email[0m
+
+[0m  Tortuga module[0m
+[0m    #products[0m
+    [36m  - should call the api with the proper parameters[0m
+[0m    #balance[0m
+    [36m  - should retrieve a balance from the server[0m
+[0m    #transactions[0m
+date_to=
+    [31m  1) should retrieve the full transaction history from the server[0m
+date_to=2014-08-02
+    [32m  ✓[0m[90m should work with valid dates [0m[31m(812ms)[0m
+date_to=
+    [31m  2) should fail with bad dates with invalid formats[0m
+
+[0m  UserController[0m
+  [32m  ✓[0m[90m should exist [0m
+[0m    #products[0m
+    [32m  ✓[0m[90m should pass the proper arguments to IDT Tortuga [0m
+[0m    #new[0m
+    [32m  ✓[0m[90m should have function new [0m
+
+    [32m  ✓[0m[90m should call res.view [0m
+[0m    #create[0m
+    [36m  - should have function create[0m
+    [36m  - should interact with the database when valid credentials are presented[0m
+[0m    #show[0m
+    [32m  ✓[0m[90m should have function show [0m
+[0m    #index[0m
+    [32m  ✓[0m[90m should have function index [0m
+[0m    #edit[0m
+    [32m  ✓[0m[90m should have function edit [0m
+[0m    #update[0m
+    [32m  ✓[0m[90m should have function update [0m
+[0m    #destroy[0m
+    [32m  ✓[0m[90m should have function destroy [0m
+[0m    #subscribe[0m
+    [32m  ✓[0m[90m should have function subscribe [0m
+
+
+[92m [0m[32m 11 passing[0m[90m (2s)[0m
+[36m [0m[36m 7 pending[0m
+

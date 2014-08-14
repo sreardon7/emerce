@@ -1,0 +1,17 @@
+
+	<div class = 'container'>
+		<h1> Request Transaction History </h1>
+		<button class = 'btn btn-primary'> Full History </button>
+		<form class= 'transaction-form' action= '/user/transactions'>
+			<div class = 'form-group'> 
+				<input type = 'text' placeholder = 'yyyy-mm-dd' name = 'from' class = 'form-control' >
+			</div class>
+			<div class = 'form-group'> 
+				<input type = 'text' placeholder = 'yyyy-mm-dd' name = 'to' class = 'form-control' >
+			</div class>
+			<button class = 'btn btn-primary' type = 'submit'> Partial History </button>
+			<input type = 'hidden' name = '_csrf' value ='/'>
+
+	</div class>
+
+

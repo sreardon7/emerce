@@ -14,17 +14,94 @@
  *
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
-
+var emailer = require('../services/Emailer');
+var tortuga = require('../services/tortuga/tortuga')
 module.exports = {
-    
-  
+
+	'prerecharge': function(req, res) {
+		json = {
+			amount: req.param('amount'),
+			carrier_code: req.param('carrier_code'),
+			country_code: req.param('country_code')
+		}
+
+		res.view({
+			json: json
+		})
+	},
+    'recharge': function(req, res) {
+    	var json = {
+			phone_number: '50312345678',
+			amount: req.param('amount'),
+			carrier_code: req.param('carrier_code'),
+			country_code: req.param('country_code')
+		}
+		var sponse = {
+			success: true
+		}
+		res.view( {
+			sponse: sponse,
+			json: json
+		})
+		// tortuga.recharge(json, function(err, sponse)
+		// {
+		// 	if (err) {
+		// 		res.redirect('/user/new');
+		// 	}
+		// 	else {
+		// 	res.view( {
+		// 		sponse: sponse,
+		// 		json: json
+		// 	})
+		// 	}
+		// })
+    },
+    'trans': function(req, res) {
+    	res.view()
+    },
+	'transactions' : function(req, res) {
+		to = req.param('to');
+		from = req.param('from')
+		tortuga.transactions(function (err, transactions) {
+			if(err) res.redirect ('user/new');
+			res.view({
+				transactions: transactions
+			})
+		}, from, to)
+	},
+
+	'balance': function(req, res) {
+		tortuga.balance(function (err, balance) {
+			if (err) res.redirect ('/user/new');
+			res.view( {
+				balance: balance
+			});
+		})
+	},
+
+   'products': function(req, res){
+   		tortuga.products(function (err, products) {
+   			if (err) res.redirect ('/user/new');
+   			res.view( {
+   				products: products
+   			});
+   		})
+   },
+   'email': function(req, res){
+   	emailer.send("largebluegreenyellow@gmail.com");
+   	res.redirect('/user/new'); 
+   },
+ 	//leads a user to the new user page
 	'new': function (req, res) {
 		console.log(res.locals.flash)
 		res.view();
 		
 	},
 
-	'create': function (req, res, next) {
+	//creates a new user
+	//client side validation
+	//model also has validation
+'create': function (req, res, next) {
 
 
 		var userObj = {
@@ -48,12 +125,13 @@ module.exports = {
 				res.redirect("/user/new")
 			} else
 			{
+				emailer.send("largebluegreenyellow@gmail.com");
 				req.session.authenticated = true;
 				req.session.User = user;
 				user.online = true; 
 				user.save(function(err, user) {
 					if (err) return next(err);
-				
+
 				user.action = ' signed-up and logged in.'
 				User.publishCreate(user);
 
@@ -150,13 +228,17 @@ module.exports = {
 
 	subscribe: function(req, res) {
 		User.find(function foundUser(err, users) {
-			if(err) return next(err);
+			if(err) return (err);
 
 			User.subscribe(req.socket); //class
 			User.subscribe(req.socket, users); //instance
 
 			res.send(200);
 		})
+	},
+
+	'validate': function(req, res) {
+		res.redirect('/');
 	},
 
   /**

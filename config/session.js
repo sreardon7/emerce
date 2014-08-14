@@ -36,7 +36,7 @@ module.exports.session = {
   // prefix: 'sess:'
 
 
-  // Uncomment the following lines to use your Mongo adapter as a session store
+  // Uncomment the followi ng lines to use your Mongo adapter as a session store
   // adapter: 'mongo',
   //
   // host: 'localhost',
