@@ -10,7 +10,10 @@
     "optimist": "0.3.4",
     "sails": "0.9.16",
     "sails-disk": "~0.9.0",
-    "sails-mongo": "^0.9.8"
+    "sails-mongo": "^0.9.8",
+    "request": "*",
+    "nodemailer": "*"
+
   },
   "scripts": {
     "start": "node app.js",
@@ -28,6 +31,8 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-requirejs": "^0.2.2",
     "requirejs": "^2.1.14",
-    "should": "^4.0.4"
+    "should": "^4.0.4",
+    "assert": "*",
+    "supertest": "*"
   }
 }
