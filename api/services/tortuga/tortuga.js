@@ -1,5 +1,5 @@
 var request = require('request'); 
-var use_key = '880bd6d29ec897d2c56b20b8f14e94c4';
+var use_key = 'e0ee2bc6d1979f49c6437e27b06a0101';
 
 //corresponding function for each api call to tortuga gateway, allows easy calling and can store user key
 
@@ -7,7 +7,7 @@ module.exports = {
 	
 	'status': function(callback) {
 		process.env['NODE_TLS_REJECT_UNAUTHORIZED']= '0';
-		request.get('https://dev.app.idt.net/status?user_key=' + use_key, function(err, response, body)
+		request.get('https://dev.app.idt.net/v1/status?user_key=' + use_key, function(err, response, body)
 		{
 			if(err) callback(err);
 
@@ -18,7 +18,7 @@ module.exports = {
 	'fund': function(json, callback) {
 		process.env['NODE_TLS_REJECT_UNAUTHORIZED']= '0';
 		request.post({
-			uri: 'https://dev.app.idt.net/fund?user_key=' + use_key,
+			uri: 'https://dev.app.idt.net/v1/charges?user_key=' + use_key,
 			json: json,
 			method: 'POST'
 		},
@@ -30,12 +30,12 @@ module.exports = {
 
 	},
 	//charge
-	'recharge': function(json, callback) {
+	'topups_post': function(json, callback) {
 		process.env['NODE_TLS_REJECT_UNAUTHORIZED']= '0';
 		if (json.phone_number && json.amount && json.carrier_code && json.country_code)
 		{
 		request.post({
-			uri: 'https://dev.app.idt.net/recharge?user_key=' + use_key,
+			uri: 'https://dev.app.idt.net/v1/imtu/topups?user_key=' + use_key,
 			json: json,
 			method: 'POST'
 		}, function (err, response, body) {
@@ -52,7 +52,7 @@ module.exports = {
 	'products': function(callback) {
 		process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 		
-		request.get('https://dev.app.idt.net/products?user_key=' + use_key, function (err, response, body) {
+		request.get('https://dev.app.idt.net/v1/imtu/products?user_key=' + use_key, function (err, response, body) {
 		
 				if (err) {
 					callback(err);
@@ -68,7 +68,7 @@ module.exports = {
 		
 		process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
-		request.get('https://dev.app.idt.net/applications/balance?user_key=' + use_key, function (err, response, body) {
+		request.get('https://dev.app.idt.net/v1/imtu/balance?user_key=' + use_key, function (err, response, body) {
 			if(err) {
 				callback(err);
 			}
@@ -79,23 +79,39 @@ module.exports = {
 		})
 	},
 
-	'transactions': function(callback, from, tom) {
-		
+	'topups_get': function(callback) {
+		//from and tom deleted, might get that functionality back
 			
 			process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 			//clear if they arnt both set, else client side checks for proper format
-			if (from == null || tom  == null)
+			/*if (from == null || tom  == null)
 			{
 				from = '';
 				tom = '';
-			}
-			request.get('https://dev.app.idt.net/applications/transactions?user_key=' + use_key + '&date_from=' + (from) + '&date_to=' + (tom) + '', function(err, response, body) {
+			}*/
+			request.get('https://dev.app.idt.net/v1/imtu/topups?user_key=' + use_key, function(err, response, body) {
 				if (err)
 				{
 					callback(err);
 				} else {
-					var trans = JSON.parse(body);
-					callback(err, trans);
+					var topup = JSON.parse(body).data;
+					callback(err, topup);
+				}
+			})
+		
+	},
+	'charges_get': function(callback) {
+		
+			
+			process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+
+			request.get('https://dev.app.idt.net/v1/imtu/charges?user_key=' + use_key, function(err, response, body) {
+				if (err)
+				{
+					callback(err);
+				} else {
+					var charge = JSON.parse(body).data;
+					callback(err, charge);
 				}
 			})
 		

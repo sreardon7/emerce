@@ -17,9 +17,11 @@
 var emailer = require('../services/Emailer');
 var tortuga = require('../services/tortuga/tortuga')
 module.exports = {
-
-	'prerecharge': function(req, res) {
-		json = {
+	'error': function(req, res) {
+		res.view(); 
+	},
+	'pretopups_post': function(req, res) {
+		var json = {
 			amount: req.param('amount'),
 			carrier_code: req.param('carrier_code'),
 			country_code: req.param('country_code')
@@ -29,9 +31,9 @@ module.exports = {
 			json: json
 		})
 	},
-    'recharge': function(req, res) {
+    'topups_post': function(req, res) {
     	var json = {
-			phone_number: '50312345678',
+			phone_number: req.param('phone_number'),
 			amount: req.param('amount'),
 			carrier_code: req.param('carrier_code'),
 			country_code: req.param('country_code')
@@ -56,18 +58,16 @@ module.exports = {
 		// 	}
 		// })
     },
-    'trans': function(req, res) {
-    	res.view()
-    },
-	'transactions' : function(req, res) {
-		to = req.param('to');
-		from = req.param('from')
-		tortuga.transactions(function (err, transactions) {
+    // 'trans': function(req, res) {
+    // 	res.view()
+    // },
+	'topups_get' : function(req, res) {
+		tortuga.topups_get(function (err, topups) {
 			if(err) res.redirect ('user/new');
 			res.view({
-				transactions: transactions
+				topups: topups
 			})
-		}, from, to)
+		})
 	},
 
 	'balance': function(req, res) {
@@ -240,6 +240,14 @@ module.exports = {
 	'validate': function(req, res) {
 		res.redirect('/');
 	},
+
+
+	/*regular user methods */
+	'userBalance': function(req, res) {
+
+		res.view();
+	},
+	
 
   /**
    * Overrides for the settings in `config/controllers.js`
