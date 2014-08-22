@@ -1,6 +1,147 @@
+/*
+	Turcoise = #34dddd
+	dark turq = #23c6ec
+	dark purple = #1d365d
+	darker purple = #1a3053
+	shadow purple = 551a8b / 85 26 139 
+*/
+
 .jumbotron {
-	background-image: url('/images/home.jpg'); 
-	color: white;
+	color: #1d365d;
+	box-shadow: 10px 10px 30px -1px rgba(85,26,139,0.5);
+	border: 1px solid #1d365d;
+	background: linear-gradient(#2ec6ec, #34dddd, #34dddd, #34dddd, #2ec6ec);
+	
+}
+
+	/*use jumbotron jumbotron-reverse to inherit from jumbotron */
+.jumbotron-reverse {
+	color: #34DDDD;
+	border: 1px solid #34dddd;
+	box-shadow: 10px 10px 30px -1px rgba(52,221,221,0.3);
+	background: linear-gradient(#1a3053,  #1d365d, #1d365d,  #1d365d,  #1a3053);
+	
+}
+
+th, td, tr {
+	border-collapse: collapse;
+	border-top: 2px solid #23c6ec;
+}
 
 
+/* Navbar Skins */
+
+.navbar-default {
+	background-color: #1d365d;
+	border-color: #34DDDD;
+	box-shadow: 0px 5px 5px 1px rgba(85, 26, 139, 0.5);
+}
+
+.navbar-default .navbar-brand{
+	color: #34DDDD;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: #1d365d;
+	background-color: #34DDDD;
+	font-weight: bold;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #34DDDD;
+
+}
+
+.navbar-default .navbar-nav > .active > a
+{
+	background-color: #34DDDD;
+	color: #1d365d;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+{
+	background-color: #1d365d;
+	color: #34DDDD;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #34DDDD;
+    color: #1d365d;
+}
+
+
+
+/* Button Skins */
+
+.btn-default {
+	color: #1d365d;
+	background-color: #34DDDD;
+	border-color: #34DDDD;
+	background: linear-gradient(#2ec6ec, #34dddd, #34dddd, #34dddd, #2ec6ec);
+	box-shadow: 3px 3px 5px -1px rgba(52,221,221,0.3);
+}
+
+.btn-default:hover {
+	background-color: #2ec6c6;
+	border-color: #2ec6c6;
+	color: #1d365d;
+	background: linear-gradient(#34dddd, #2ec6ec, #2ec6ec, #2ec6ec, #34dddd);
+}
+
+.btn-inverse {
+	color: #34DDDD;
+	background-color: #1d365d;
+	border-color: #1d365d;
+	background: linear-gradient(#1a3053,  #1d365d, #1d365d,  #1d365d,  #1a3053);
+	box-shadow: 3px 3px 5px -1px rgba(85,26,139,0.5);	
+}
+
+.btn-inverse:hover {
+	color: #34DDDD;
+	background-color: #1a3053;
+	border-color: #1d365d;
+	background: linear-gradient(#1d365d, #1a3053, #1a3053, #1a3053,  #1d365d);	
+}
+
+/* panel skins */
+
+.panel-default {
+	background-color: #c2f4f4;
+	color: #1d365d;
+	border: 1px solid #1d365d;
+	box-shadow: 10px 10px 30px -1px rgba(85,26,139,0.5);
+}
+
+.panel-default > .panel-heading {
+	background-color: #99eeee;
+	border-bottom: 1px solid #adf1f1;
+}
+
+
+/* form */
+.form-light {
+	background-color: #daf0f0;
+	color: #551a8b;
+	border-color: #1d365d;
+}
+.form-light:focus {
+	border-color:#34dddd;
+
+}
+
+/* col */
+
+.col-no-pad {
+
+	padding: 0 0 0 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+
+body {
+	background-color: #ccc;
 }
