@@ -1,0 +1,18 @@
+<div class = 'container'>
+	<div class = 'jumbotron'>
+
+
+		<h1> Top Up: 
+			<% if(sponse.success) { %>
+			<%= 'Success'%>
+			<%}else { %>
+			<%= 'Failure' %>
+			<%}%>
+		</h1>
+	<h2> Carrier: <%= json.carrier_code %> </h2>
+		<h2> Country: <%= json.country_code %> </h2>
+		<h2> Amount: <%= '$ ' + json.amount / 100 + '.00' %></h2>
+	<h2>Mobile Number: <%= json.phone_number %> </h2>
+
+	</div>
+</div> 

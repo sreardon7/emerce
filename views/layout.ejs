@@ -59,12 +59,11 @@
           <ul class = 'nav navbar-nav'>
             <% if (session.authenticated) { %>
             <li class = 'active'><a href='/user/show/<%= session.User.id %>'><%= session.User.name %> </a> </li>
-            <li><a href='/user/products'>Product List</a></li>
               <% if (session.User.admin) { %>
+              <li><a href='/user/products'>Product List</a></li>
               <li><a href='/user'>User Admin</a></li>
               <li><a href='/user/balance'>Balance</a></li>
-              <li><a href='/user/trans'>Transactions</a></li>
-              <li><a href='/user/recharge'>Recharge</a></li>
+              <li><a href='/user/topups_get'>Topups</a></li>
               <% } %>
             <% } %>
 
@@ -83,7 +82,7 @@
               <div class= 'form-group'>
                 <input type ='password' placeholder = 'password' name='password' class='form-control'>
               </div>
-              <button type = 'submit' class = 'btn btn-success'>Sign in</button>
+              <button type = 'submit' class = 'btn btn-default'>Sign in</button>
               <input type='hidden' name = '_csrf' value = <%_csrf %> />
             </form>
             <% } %>
@@ -93,12 +92,6 @@
 
     <%- body %>
 
-    <div class = 'container'>
-      <hr>
-      <div class = 'pull-right'>
-        <div> Developed by Sean Reardon </div>
-      <div>
-    <div>
 
 
     <!--
@@ -142,7 +135,8 @@
       
       To customize any part of the built-in behavior, just edit your Gruntfile.
       For example, here are a few things you could do:
-          
+          background-color: #34DDDD;
+  color: #1d365d;
           + Change the order of your scripts
           + Import scripts from other directories
           + Use a different preprocessor, like TypeScript
@@ -158,6 +152,15 @@
     <script src="/linker/js/bootstrap.js"></script>
     <script src="/linker/js/customValidate.js"></script>
     <script src="/linker/js/underscore.js"></script>
+    <script src="/linker/js/vdate.js"></script>
     <!--SCRIPTS END-->
   </body>
+    <footer>
+    <div class = 'container'>
+      <hr>
+      <div class = 'pull-right'>
+        <div> Developed by Sean Reardon </div>
+      <div>
+    <div>
+  </footer>
 </html>

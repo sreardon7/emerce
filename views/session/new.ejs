@@ -1,16 +1,30 @@
-<form action = '/session/create' method="POST" class='form-signin'>
-	<h2 class = 'form-signin-heading'> Please sign in</h2>
-	<% if(flash && flash.err) { %>
-		<ul class = 'aler alert-success'>
-	<% Object.keys(flash.err).forEach(function(error) { %>
-		<li><%- JSON.stringify(flash.err[error]) %></li>
-	<% })%>
-</ul>
-<% } %>
+<div class = 'container'>
+	<div class = 'jumbotron'>
+		<div class = 'row'>
+			<div class = 'col-md-3'>
+			</div>
+			<div class = 'col-md-6'>
 
-<input type = 'text' class='form-control' placeholder='Email address' name = 'email'>
-<input type = 'password' class='form-control' placeholder = 'Password' name = 'password'>
-<input type = 'submit' class = 'btn btn-lg btn-primary btn-block' value = 'Sign-in' />
-<input type = 'hidden' name= '_csrf' value = '<%= _csrf %>' />
 
-</form>
+
+				<form action = '/session/create' method="POST" class='form-signin'>
+				<h2 class = 'form-signin-heading'> Please sign in</h2>
+				<% if(flash && flash.err) { %>
+				<ul class = 'aler alert-success'>
+				<% Object.keys(flash.err).forEach(function(error) { %>
+				<li><%- JSON.stringify(flash.err[error]) %></li>
+				<% })%>
+				</ul>
+				<% } %>
+
+				<input type = 'text' class='form-control' placeholder='Email address' name = 'email'>
+				<input type = 'password' class='form-control' placeholder = 'Password' name = 'password'>
+				<input type = 'submit' class = 'btn btn-lg btn-primary btn-block' value = 'Sign-in' />
+				<input type = 'hidden' name= '_csrf' value = '<%= _csrf %>' />
+			</form>
+			</div>
+			<div class = 'col-md-3'>
+			</div>
+		</div>
+	</div>
+</div>

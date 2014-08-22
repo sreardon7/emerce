@@ -1,0 +1,77 @@
+<div class = "container">
+	<div class = 'panel panel-default' style='max-width: 500px;'>
+		<div class = 'panel-heading'>
+			<ul class = 'nav nav-tabs' role= 'tablist'>
+				<li class = 'active'><a  data-toggle="tab" role = 'tab' href = '#Node'>Node</a></li>
+				<li><a data-toggle="tab" role = 'tab' href = '#Ruby'>Ruby</a></li>
+				<li><a data-toggle="tab" role = 'tab' href = '#Java'>Java</a></li>
+				<li><a data-toggle="tab" role = 'tab' href = '#Python'>Python</a></li>
+				<li><a data-toggle="tab" role = 'tab' href = '#NET'>.NET</a></li>
+				<li><a data-toggle="tab" role = 'tab' href = '#REST'>REST</a></li>
+			</ul>
+		</div>
+		<div class = 'panel-body'>
+			<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="Node">
+    <pre>
+      //uses npm module request for https request
+          
+      topUpParameters = 
+        {
+          phone_number: '50312345678',
+          carrier_code: 'Claro',
+          country_code: 'SV'
+        }
+
+        request.post({
+          uri: 'https://dev.app.idt.net/v1/imtu/topups?user_key= + use_key?$user_key',
+          json: topUpParameters
+          method: 'POST'
+          }, function (err, response, body) {
+              //check for success
+          })
+    </pre>
+  </div>
+         
+  <div class="tab-pane" id="Ruby">
+  	<pre>
+       Hello World in Ruby
+   </pre>
+  </div>
+  <div class="tab-pane" id="Java">
+    <pre>
+      public static void main(String args[])
+      {
+          System.out.print("Hello World in Java");
+      }
+    </pre>
+  </div>
+  <div class="tab-pane" id="Python">
+    <pre>
+      Hello World in Python
+    </pre>
+  </div>
+  <div class="tab-pane" id="NET">
+    <pre>
+      Hello World in .NET
+    </pre>
+  </div>
+  <div class="tab-pane" id="REST"> 
+  	<pre> curl -v -X POST \
+  	-H "Content-Type:application/json" \
+  	-d '{
+  			"phone_number": "50312345678", 
+  			"amount": "500", 
+  			"carrier_code": "Claro", 
+  			"country_code": "SV"
+  		}' \
+  	"https://dev.app.idt.net/v1/imtu/topups?user_key=$user_key
+  	</pre>
+  </div>
+
+</div>
+		</div>
+	</div>
+
+</div>
