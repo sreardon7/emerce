@@ -38,25 +38,26 @@ module.exports = {
 			carrier_code: req.param('carrier_code'),
 			country_code: req.param('country_code')
 		}
-		var sponse = {
-			success: true
-		}
-		res.view( {
-			sponse: sponse,
-			json: json
-		})
-		// tortuga.recharge(json, function(err, sponse)
-		// {
-		// 	if (err) {
-		// 		res.redirect('/user/new');
-		// 	}
-		// 	else {
-		// 	res.view( {
-		// 		sponse: sponse,
-		// 		json: json
-		// 	})
-		// 	}
+		// var sponse = {
+		// 	success: true
+		// }
+		// res.view( {
+		// 	sponse: sponse,
+		// 	json: json
 		// })
+		tortuga.topups_post(json, function(err, sponse)
+		{
+			if (err) {
+				res.redirect('/user/new');
+			}
+			else {
+				
+			res.view( {
+				sponse: sponse,
+				json: json
+			})
+			}
+		})
     },
     // 'trans': function(req, res) {
     // 	res.view()
