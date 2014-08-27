@@ -34,9 +34,16 @@ module.exports = {
 		process.env['NODE_TLS_REJECT_UNAUTHORIZED']= '0';
 		if (json.phone_number && json.amount && json.carrier_code && json.country_code)
 		{
+			var cheater = {
+			phone_number: '50312345678',
+			amount: '500',
+			carrier_code: 'Claro',
+			country_code: 'SV'
+
+		} 
 		request.post({
 			uri: 'https://dev.app.idt.net/v1/imtu/topups?user_key=' + use_key,
-			json: json,
+			json: cheater,
 			method: 'POST'
 		}, function (err, response, body) {
 			callback(err, body);
