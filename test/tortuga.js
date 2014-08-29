@@ -132,6 +132,7 @@ describe("Tortuga module", function() {
 			})
 
 		})
+		
 		it('should fail with improper json', function(done) 
 		{
 			this.timeout(5000);
@@ -149,6 +150,7 @@ describe("Tortuga module", function() {
 				}
 				else {
 					sponse.should.not.be.ok;
+					sponse.success.should.not.eql('Failure');
 					done();
 				}
 			})
@@ -168,6 +170,7 @@ describe("Tortuga module", function() {
 				else {
 					topups.should.be.ok;
 					topups.length.should.be.above(0)
+					console.log(topups);
 					done()
 				}
 			})

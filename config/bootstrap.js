@@ -9,6 +9,7 @@
  */
 
 module.exports.bootstrap = function (cb) {
+	 sails.config.appName = "Spencer for Hire";
 User.update( {}, {
 	online: false
 	},
