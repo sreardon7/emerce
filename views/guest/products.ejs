@@ -22,7 +22,7 @@
 			<% _.each(prod, function(prod) { %>
 				<tr> 
 					<td>  <% var json = makeList(products, prod) %>
-						<a href = '/user/pretopups_post?amount=<%=json.amount%>&country_code=<%=json.country_code%>&carrier_code=<%=json.carrier_code%>' class ="btn btn-inverse"> Buy</a>
+						<a href = '/guest/pretopups?amount=<%=json.amount%>&country_code=<%=json.country_code%>&carrier_code=<%=json.carrier_code%>' class ="btn btn-inverse"> Buy</a>
 						</td>
 					<td> <%= prod.attributes.CountryName %></td>
 					<td> <%= prod.CarrierList.Carrier[0].attributes.CarrierName %></td>
