@@ -7,9 +7,9 @@
 */
 
 .jumbotron {
-	color: #1d365d;
-	box-shadow: 10px 10px 30px -1px rgba(85,26,139,0.5);
-	border: 1px solid #1d365d;
+	color: white;
+	/*box-shadow: 10px 10px 30px -1px rgba(85,26,139,0.5);*/
+	border: 1px solid #21608a;
 	/*background: linear-gradient(#2ec6ec, #34dddd, #34dddd, #34dddd, #2ec6ec); */
 	background-color: #EEE;
 	color: #333;
@@ -29,63 +29,54 @@
 
 th, td, tr {
 	border-collapse: collapse;
-	border-top: 2px solid #23c6ec;
+	border-top: 2px solid #21608a;
 }
 
 
 /* Navbar Skins */
 
 .navbar-default {
-	background-color: #1d365d;
-	border-color: #34DDDD;
-	box-shadow: 0px 5px 5px 1px rgba(85, 26, 139, 0.5);
-	background-color: #333;
-	color: #34DDDD;
+	background-color: #21608a;
+	border-color: transparent;
+	color: #white;
 }
 
 .navbar-default .navbar-brand{
-	color: #34DDDD;
 	font-weight: bold;
-	color: yellow;
+	color: white;
 	
 }
 
 .navbar-default .navbar-brand:hover {
-	color: #1d365d;
-	background-color: #34DDDD;
+	color: #21608a;
+	background-color: white;
 	font-weight: bold;
-	color: yellow;
-	background-color: #333;
 }
 .navbar-default .navbar-nav > li > a {
-	color: #34DDDD;
-	color: #DDD;
+	color: white;
 
 }
 
 .navbar-default .navbar-nav > .active > a
 {
-	background-color: #34DDDD;
-	color: #1d365d;
+	background-color: white;
+	color: #21608a;
 	font-weight: bold;
-	color: #333;
-	background-color: #DDD;
+	
 }
 
 .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
 {
-	background-color: #1d365d;
-	color: #34DDDD;
+	background-color: #21608a;
+	color: white;
 	font-weight: bold;
-	background-color: #DDD;
-	color: #333;
+	
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    background-color: #34DDDD;
-    color: #1d365d;
-    color: #333;
-    background-color: #DDD;
+    background-color: white;
+    color: #21608a;
+    
 }
 
 
@@ -93,35 +84,28 @@ th, td, tr {
 /* Button Skins */
 
 .btn-default {
-	color: #1d365d;
-	background-color: #34DDDD;
-	border-color: #34DDDD;
-	background: linear-gradient(#2ec6ec, #34dddd, #34dddd, #34dddd, #2ec6ec);
-	box-shadow: 3px 3px 5px -1px rgba(52,221,221,0.3);
-	
-
+	color: #21608a;
+	background-color: white;
+	border-color: #21608a;
 }
 
 .btn-default:hover {
-	background-color: #2ec6c6;
-	border-color: #2ec6c6;
-	color: #1d365d;
-	background: linear-gradient(#34dddd, #2ec6ec, #2ec6ec, #2ec6ec, #34dddd);
+	background-color: #eee;
+	border-color: #21608a;
+	color: #21608a;
 }
 
 .btn-inverse {
-	color: #34DDDD;
-	background-color: #1d365d;
-	border-color: #1d365d;
-	background: linear-gradient(#1a3053,  #1d365d, #1d365d,  #1d365d,  #1a3053);
-	box-shadow: 3px 3px 5px -1px rgba(85,26,139,0.5);	
+	color: white;
+	background-color: #21608a;
+	border-color: #21608a;
+	
 }
 
 .btn-inverse:hover {
-	color: #34DDDD;
-	background-color: #1a3053;
-	border-color: #1d365d;
-	background: linear-gradient(#1d365d, #1a3053, #1a3053, #1a3053,  #1d365d);	
+	color: white;
+	background-color: #376f95;
+	border-color: #21608a;
 }
 
 /* panel skins */
