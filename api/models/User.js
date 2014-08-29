@@ -42,6 +42,11 @@ module.exports = {
       defaultsTo: false
     },
 
+    balance: {
+      type: 'number',
+      defaultsTo: 0
+    },
+
   	toJSON: function() {
   		var obj = this.toObject();
   		delete obj.password;

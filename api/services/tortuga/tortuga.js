@@ -41,8 +41,7 @@ module.exports = {
 			json: json,
 			method: 'POST'
 		}, function (err, response, body) {
-			console.log(body);
-			console.log(err);
+			
 			callback(err, body);
 
 		})

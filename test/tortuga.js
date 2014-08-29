@@ -2,7 +2,7 @@ var sinon = require('sinon');
 var should = require('should');
 var tortuga = require('../api/services/tortuga/tortuga');
 var request = require('request');
-var productJson = require('./productJson');
+
 
 //tests the tortuga service and its connection to the tortuga gateway
 //warning. tortuga dev server must be live for most of these tests to work
@@ -26,9 +26,9 @@ describe("Tortuga module", function() {
 				}
 				else {
 				products.length.should.be.above(10);
-				//console.log(products)
+				
 				var prod = products[0].ProductCountryList.ProductCountry[0].attributes.CountryCode;
-				console.log(prod)
+			
 				done();
 			}
 			})
@@ -45,7 +45,7 @@ describe("Tortuga module", function() {
 					done();
 				}
 				else{
-				console.log(bal.Balance)
+			
 				bal.should.be.ok;
 				bal.Balance.should.be.ok;
 				bal.CurrencyCode.should.be.ok;
@@ -78,25 +78,7 @@ describe("Tortuga module", function() {
 		})  
 	})
 	
-		//feature currently dissabled 
-		it.skip("should work with valid dates", function(done) {
-			this.timeout(10000)
-			date1 = '2014-08-02'
-			date2 = '2014-08-04'
-			tortuga.transactions(function(err, trans) {
-				if (err) {
-					err.should.not.be.ok;
-					done()
-				}
-				else {
-					trans.should.be.ok;
-					trans.length.should.be.above(0)
-					done()
-				}
-			}, date1, date2)
-		})
-		//should fail with invalid dates, if feature is reinabled
-	})
+	
 
 	describe('#topups_post', function() {
 		it('should top up a mobile number', function(done) 
@@ -132,6 +114,7 @@ describe("Tortuga module", function() {
 			})
 
 		})
+	})
 		
 		it('should fail with improper json', function(done) 
 		{
@@ -170,7 +153,7 @@ describe("Tortuga module", function() {
 				else {
 					topups.should.be.ok;
 					topups.length.should.be.above(0)
-					console.log(topups);
+				
 					done()
 				}
 			})
@@ -199,14 +182,14 @@ describe("Tortuga module", function() {
 		before(function (done) {
 			tortuga.balance(function(err, bal){
 				balance = bal.Balance;
-				console.log(balance);
+				
 				done();
 			})
 		})
 		after(function (done) {
 			tortuga.balance(function(err, bal){
 				balance = bal.Balance;
-				console.log(balance);
+				
 				done();
 			})
 		})
