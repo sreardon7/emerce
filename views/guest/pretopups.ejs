@@ -1,0 +1,83 @@
+<div class = 'container'>
+	<div class = 'jumbotron'>
+	<h1> Top Up: Input Mobile Phone</h1>
+
+		<div class = 'row'>
+			<div class = 'col-md-2'>
+			</div class>
+			<div class = 'col-md-8'>
+				<h2> Carrier: <%= json.carrier_code %> </h2>
+				<h2> Country: <%= json.country_code %> </h2>
+				<h2> Amount: <%= '$ ' + json.amount / 100 + '.00' %></h2>
+				<div class = 'row'>
+					<h3>
+						<div class = 'col-md-6 col-no-pad'  >
+						<label for = 'phone_number'> Mobile Phone Number: </label>
+						</div>
+						<div class = 'col-md-4 col-no-pad'>
+							<input type = 'text' placeholder = '##########' id = 'phone_number' class = 'form-control' >
+						</div>
+						<div class = 'col-md-2 col-no-pad'>
+							<a class = 'btn btn-success' onclick='recharge()' id = 'recharge_button' href = '#error'> Proceed To Checkout! </a>	
+						</div>
+					</h3>
+				</div>
+				<h2 id = 'ERROR'> Top up</h2>
+			</div>
+			<div class = 'col-md-2'>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<script> 
+	function recharge() {
+		var json = {
+			amount: '<%=json.amount%>', 
+			carrier_code: '<%=json.carrier_code%>',
+			country_code: '<%=json.country_code%>'
+		}
+		var error;
+		var phone = document.getElementById('phone_number').value;
+		var url = '/guest/payment?amount=' + json.amount + '&country_code=' + json.country_code + '&carrier_code=' + json.carrier_code + '&phone_number=' + phone;
+
+		if(phone){
+	
+		if(phone.length < 10)
+		{
+			error = 'phone number to short: xxxxxxxxxx'
+		}
+		for(var i = 0; i < phone.length; i++)
+		 	{
+				if(phone.charCodeAt(i) < '0'.charCodeAt(0) || phone.charCodeAt(i) > '9'.charCodeAt(0) )
+				{
+		 			error =  "Character at " + (i+1) + " is not a number. "
+		 		}
+		 		if ( i > 10 )
+		 		{
+		 			error =  "phone number is to long. "
+		 		}
+		 	}
+		 }
+		 else 
+		 {
+		 	error = " Please enter a phone number: xxxxxxxxxx "
+		 }
+
+		 if (error) {
+		 	document.getElementById('ERROR').innerHTML = error;
+			
+		 }
+		else{
+		 	document.getElementById('recharge_button').href = url;
+		 }
+
+	}
+</script>
+						
+
+
