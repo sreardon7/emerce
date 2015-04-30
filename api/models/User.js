@@ -43,7 +43,7 @@ module.exports = {
     },
 
     balance: {
-      type: 'number',
+      type: 'string',
       defaultsTo: 0
     },
 
